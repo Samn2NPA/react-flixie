@@ -13,14 +13,14 @@ The following **required** functionality is completed:
 - [ ] User sees loading state while waiting for the API.
 - [ ] User sees an error message when there is a network error.
 - [ ] User can refresh the movie list.
-- [ ] User can search/filter the movie results via a search bar.
-- [ ] User can use the page on both desktop and mobile viewport sizes.
+- [x] User can search/filter the movie results via a search bar.
+- [x] User can use the page on both desktop and mobile viewport sizes.
 
 The following **optional** features are implemented:
 
 - [ ] Toggle between **Now Playing** and **Top Rated** movies.
 - [ ] Sort Movies by rating, popularity, release date.
-- [ ] Animations on open/close details.
+- [x] Animations on open/close details.
 - [ ] Infinite Scrolling.
 - [ ] Movie Poster Lightbox on click
 - [ ] Multiple Layout Options

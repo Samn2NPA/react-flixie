@@ -20,13 +20,15 @@ export default class MovieCard extends Component {
     super(props);
     this.clickMore = this.clickMore.bind(this);
     this.state = {
-      isCollapsed: false
+      isCollapsed: false,
+      isMore: "Show more"
     };
   }
 
   clickMore(collapsed) {
     this.setState({
-      isCollapsed: !collapsed
+      isCollapsed: !collapsed,
+      isMore: this.state.isMore === "Show more" ? "Show less" : "Show more"
     });
   }
 
@@ -34,7 +36,6 @@ export default class MovieCard extends Component {
     const defaultPath = "https://image.tmdb.org/t/p/original";
     return defaultPath + poster_path;
   }
-
 
   render() {
     const { movie } = this.props;
@@ -53,15 +54,21 @@ export default class MovieCard extends Component {
         />
         <CardBody>
           <CardTitle>{movie.title}</CardTitle>
-          <Button
-            color="primary"
-            onClick={() => this.clickMore(this.state.isCollapsed)}
-            style={{ marginBottom: "1rem" }}
-          > More</Button>
+          <div>
 
-          <Collapse isOpen={this.state.isCollapsed}>
+            
+          <Collapse isOpen={this.state.isCollapsed}>            
             <CardText>{movie.overview}</CardText>
           </Collapse>
+          <Button
+              color="primary"
+              onClick={() => this.clickMore(this.state.isCollapsed)}
+              style={{ marginBottom: "1rem" }}
+            >
+              {this.state.isMore}
+            </Button>
+
+          </div>
         </CardBody>
       </Card>
     );
