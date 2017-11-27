@@ -1,3 +1,25 @@
-.MovieCard-Box{
-    background-color:lightcyan;
+.MovieCard-Box {
+  background-color: lightcyan;
+}
+
+.content {
+  margin: 4px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.title {
+  font-size: 130%;
+}
+
+.subtitle {
+  margin-left: 40px;
+  font-size: 100%
+}
+
+.icon {
+  height: 15px;
+  margin-bottom: 3px;
+  margin-left: 3px;
 }

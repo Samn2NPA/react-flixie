@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Box } from "bloomer";
+import voteIcon from "./vote_icon.png";
+import calenderIcon from "./calendar_icon.png";
 import "./MovieCard.css";
 import {
   Card,
@@ -7,9 +8,7 @@ import {
   CardText,
   CardBody,
   CardTitle,
-  CardSubtitle,
   Button,
-  CardGroup,
   Collapse
 } from "reactstrap";
 import { Columns } from "bloomer/lib/grid/Columns";
@@ -41,10 +40,6 @@ export default class MovieCard extends Component {
     const { movie } = this.props;
 
     return (
-      // <Box className = "MovieCard-Box">
-      //     {this.props.movie.title}
-      // </Box>
-
       <Card>
         <CardImg
           top
@@ -53,21 +48,32 @@ export default class MovieCard extends Component {
           src={this.getSrcPoster(movie.poster_path)}
         />
         <CardBody>
-          <CardTitle>{movie.title}</CardTitle>
+          <CardTitle className="title">{movie.title}</CardTitle>
           <div>
-
-            
-          <Collapse isOpen={this.state.isCollapsed}>            
-            <CardText>{movie.overview}</CardText>
-          </Collapse>
-          <Button
-              color="primary"
+            <Collapse isOpen={this.state.isCollapsed}>
+              {" "}
+              <Columns>
+                <Column isSize="1/2">
+                  <img className="icon" src={calenderIcon} alt="calender" />{" "}
+                  {movie.release_date}
+                </Column>
+                <Column isSize="1/2">
+                <div className="subtitle">
+                {movie.vote_average}
+                  <img className="icon" src={voteIcon} alt="votes" />
+                  </div>
+                </Column>
+                <br />
+              </Columns>
+              <CardText className="content">{movie.overview}</CardText>
+            </Collapse>
+            <Button
+              color="info"
               onClick={() => this.clickMore(this.state.isCollapsed)}
               style={{ marginBottom: "1rem" }}
             >
               {this.state.isMore}
             </Button>
-
           </div>
         </CardBody>
       </Card>
