@@ -1,0 +1,7 @@
+npm install --save bootstrap (+ bootstrap@3.3.7)
+
+npm install --save reactstrap@next react react-dom (+ react-dom@16.1.1
++ reactstrap@5.0.0-alpha.4
++ react@16.1.1 )
+
+npm install react-search --save (+ react-search@2.0.5)npm
