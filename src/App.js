@@ -90,7 +90,7 @@ class App extends Component {
               <Columns isCentered>
                 {c.map(m => (
                   <Column isSize="1/3">
-                    <MovieCard movie={m} key={m.id} />
+                    <MovieCard key={m.id} movie={m} />
                   </Column>
                 ))}
               </Columns>

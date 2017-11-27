@@ -16,12 +16,18 @@ import { Columns } from "bloomer/lib/grid/Columns";
 import { Column } from "bloomer/lib/grid/Column";
 
 export default class MovieCard extends Component {
-
-  constructor(props){
+  constructor(props) {
     super(props);
+    this.clickMore = this.clickMore.bind(this);
     this.state = {
-      isCollapsed: false 
-    }
+      isCollapsed: false
+    };
+  }
+
+  clickMore(collapsed) {
+    this.setState({
+      isCollapsed: !collapsed
+    });
   }
 
   getSrcPoster(poster_path) {
@@ -29,13 +35,6 @@ export default class MovieCard extends Component {
     return defaultPath + poster_path;
   }
 
-  clickMore(){
-    this.collaped = this.state.isCollapsed;
-    this.collaped == false ? true : false;
-    this.setState({
-      isCollapsed: this.collaped
-    });
-  }
 
   render() {
     const { movie } = this.props;
@@ -45,22 +44,26 @@ export default class MovieCard extends Component {
       //     {this.props.movie.title}
       // </Box>
 
-        <Card >
-          <CardImg
-            top width="50%"
-            alt="poster card"
-            src={this.getSrcPoster(movie.poster_path)}
-          />
-          <CardBody>
+      <Card>
+        <CardImg
+          top
+          width="100%"
+          alt="poster card"
+          src={this.getSrcPoster(movie.poster_path)}
+        />
+        <CardBody>
           <CardTitle>{movie.title}</CardTitle>
-            <Button color="primary" onClick= {this.clickMore}>More</Button>
-            <Collapse isOpen={this.state.isCollapsed}>
-            
+          <Button
+            color="primary"
+            onClick={() => this.clickMore(this.state.isCollapsed)}
+            style={{ marginBottom: "1rem" }}
+          > More</Button>
+
+          <Collapse isOpen={this.state.isCollapsed}>
             <CardText>{movie.overview}</CardText>
-            </Collapse>            
-          </CardBody>
-        </Card>
-    
+          </Collapse>
+        </CardBody>
+      </Card>
     );
   }
 }
